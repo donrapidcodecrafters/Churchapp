@@ -1,0 +1,65 @@
+====================================================
+CHURCH APP - QUICK START (For Worship Leaders/Pastors)
+====================================================
+
+This is your simple guide for running the app on Sunday.
+
+----------------------------------------------------
+1. PREPARE BEFORE SERVICE
+----------------------------------------------------
+✅ Make sure the server is running (tech team handles this).
+✅ Make sure the projector is on and connected.
+
+----------------------------------------------------
+2. CONNECT PROJECTOR
+----------------------------------------------------
+Option A: Chromecast
+- Turn on Chromecast connected to projector/TV.
+- Open Service Display on your phone/tablet.
+- Tap "Cast to Chromecast".
+
+Option B: AirPlay/Web
+- On projector computer or smart TV, open:
+  https://yourchurchdomain.com/airplay.html
+- (Optional) On iPhone/iPad, AirPlay the page to the projector.
+
+Option C: HDMI Cable
+- Plug your phone/tablet/laptop into the projector/TV with an HDMI cable.
+- Open Service Display in the app.
+- Tap the TV icon in the top bar → "Presentation Mode".
+- Projector will show fullscreen lyrics/notes only.
+
+----------------------------------------------------
+3. LOAD SONGS & NOTES
+----------------------------------------------------
+- Admin loads songs for the service in the app.
+- Pastor loads sermon notes in the "Pastor Notes" screen.
+- Notes can be edited, reordered, or timed live during service.
+
+----------------------------------------------------
+4. RUN THE SERVICE
+----------------------------------------------------
+- Open "Service Display" on phone/tablet.
+- Tap "Next" and "Prev" to move through songs/notes.
+- Auto-Scroll:
+  - Tap ▶️ in the top bar to auto-advance.
+  - Tap ⏸ to pause auto-scroll.
+  - Pastor Notes can be set to stay until you move manually.
+
+----------------------------------------------------
+5. LIVE EDITS DURING SERVICE
+----------------------------------------------------
+- Pastor can edit notes on their screen at any time.
+- Changes appear instantly on the projector.
+- Notes can be reordered or their display time changed live.
+
+----------------------------------------------------
+6. END OF SERVICE
+----------------------------------------------------
+- Simply close the app.
+- Projector will return to "Waiting for lyrics...".
+- Tech team will shut down server later if needed.
+
+====================================================
+That’s it! 🎉 Preach and worship with confidence.
+====================================================

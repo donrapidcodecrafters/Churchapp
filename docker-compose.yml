@@ -1,0 +1,78 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15
+    container_name: church_db
+    restart: always
+    environment:
+      POSTGRES_DB: churchdb
+      POSTGRES_USER: churchuser
+      POSTGRES_PASSWORD: yourpassword
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./backend/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    networks:
+      - church_net
+
+  backend:
+    build: ./backend
+    container_name: church_backend
+    restart: always
+    environment:
+      DB_USER: churchuser
+      DB_PASS: yourpassword
+      DB_NAME: churchdb
+      DB_HOST: db
+      DB_PORT: 5432
+      VIRTUAL_HOST: yourdomain.com
+      LETSENCRYPT_HOST: yourdomain.com
+      LETSENCRYPT_EMAIL: admin@yourdomain.com
+    volumes:
+      - ./backend:/usr/src/app
+    depends_on:
+      - db
+    networks:
+      - church_net
+      - proxy-tier
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: church_nginx_proxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - certs:/etc/nginx/certs:ro
+      - vhost:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+    networks:
+      - proxy-tier
+
+  acme-companion:
+    image: nginxproxy/acme-companion
+    container_name: church_acme
+    restart: always
+    environment:
+      DEFAULT_EMAIL: admin@yourdomain.com
+    volumes:
+      - certs:/etc/nginx/certs
+      - vhost:/etc/nginx/vhost.d
+      - html:/usr/share/nginx/html
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    depends_on:
+      - nginx-proxy
+    networks:
+      - proxy-tier
+
+volumes:
+  db_data:
+  certs:
+  vhost:
+  html:
+
+networks:
+  church_net:
+  proxy-tier:
